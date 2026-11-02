@@ -3,6 +3,8 @@
 Extensión de GNOME que, tras un rato de uso seguido (50 minutos de fábrica), te avisa que te
 pares, estires o descanses la vista.
 
+![Aviso de Descansos](capturas/aviso.png)
+
 ## Qué hace
 - **Cuenta solo el uso real.** Si dejas la computadora 5 minutos sin tocar teclado ni ratón, o la
   bloqueas, cuenta como descanso y el conteo vuelve a empezar.
@@ -12,11 +14,14 @@ pares, estires o descanses la vista.
   botones: **Ya descansé** y **En 10 min**. Si lo ignoras, vuelve a avisar a los 10 minutos.
 
 ## Dónde se controla
+<img src="capturas/menu.png" alt="Menú de Descansos en los Ajustes rápidos" width="366" align="right">
+
 En los **Ajustes rápidos** (el menú de arriba a la derecha, el del wifi y la batería) aparece
 **Descansos** con cuánto falta para el próximo:
 - El botón prende o apaga los avisos.
 - La flechita abre el menú: **Ya descansé: empezar de nuevo** y cada cuánto avisar (25, 45, 50,
   60 o 90 minutos).
+<br clear="right">
 
 ## Instalar
 ```bash
