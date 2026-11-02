@@ -15,7 +15,6 @@ import {QuickMenuToggle, SystemIndicator} from 'resource:///org/gnome/shell/ui/q
 
 import {Contador, textoRestante} from './contador.js';
 
-const ICONO = 'preferences-system-time-symbolic';
 const PASO = 30; // s entre revisiones
 const INTERVALOS = [25, 45, 50, 60, 90];
 const POSPONER = 10; // min
@@ -27,6 +26,9 @@ const CONSEJOS = [
     'Cierra los ojos un momento y relaja los hombros.',
     'Estira las muñecas y los dedos.',
 ];
+
+// Icono propio (taza de café). "-symbolic" en el nombre hace que GNOME lo pinte del color del tema.
+let ICONO = null;
 
 const azar = lista => lista[Math.floor(Math.random() * lista.length)];
 
@@ -41,7 +43,7 @@ function algoEnPantallaCompleta() {
 const Interruptor = GObject.registerClass(
 class Interruptor extends QuickMenuToggle {
     _init(ext) {
-        super._init({title: 'Descansos', iconName: ICONO, toggleMode: true});
+        super._init({title: 'Descansos', gicon: ICONO, toggleMode: true});
         this._ext = ext;
         this._settings = ext.getSettings();
         this._settings.bind('activo', this, 'checked', Gio.SettingsBindFlags.DEFAULT);
@@ -101,6 +103,7 @@ class Indicador extends SystemIndicator {
 
 export default class Descansos extends Extension {
     enable() {
+        ICONO = Gio.FileIcon.new(this.dir.get_child('icons').get_child('descansos-symbolic.svg'));
         this._settings = this.getSettings();
         this.contador = new Contador(this._settings.get_int('intervalo'), this._settings.get_int('descanso'));
         this._inactividad = global.backend.get_core_idle_monitor();
@@ -138,6 +141,7 @@ export default class Descansos extends Extension {
         this._indicador = null;
         this._settings = null;
         this.contador = null;
+        ICONO = null;
     }
 
     _paso() {
@@ -163,7 +167,7 @@ export default class Descansos extends Extension {
 
     _avisar() {
         if (!this._fuente) {
-            this._fuente = new MessageTray.Source({title: 'Descansos', iconName: ICONO});
+            this._fuente = new MessageTray.Source({title: 'Descansos', icon: ICONO});
             this._fuente.connect('destroy', () => {
                 this._fuente = null;
             });
