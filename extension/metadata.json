@@ -1,0 +1,9 @@
+{
+  "uuid": "descansos@dimitrimednov.github.io",
+  "name": "Descansos",
+  "description": "Cada 50 minutos de uso seguido te avisa que te pares, estires o descanses la vista. Si dejas la computadora unos minutos o la bloqueas, cuenta como descanso. No avisa mientras ves algo en pantalla completa. Se controla desde los Ajustes rápidos.",
+  "shell-version": ["48", "49", "50", "51"],
+  "url": "https://github.com/DimitriMedNov/descansos",
+  "settings-schema": "org.gnome.shell.extensions.descansos",
+  "version": 1
+}

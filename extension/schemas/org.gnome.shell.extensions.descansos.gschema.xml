@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schemalist>
+  <schema id="org.gnome.shell.extensions.descansos" path="/org/gnome/shell/extensions/descansos/">
+    <key name="activo" type="b">
+      <default>true</default>
+      <summary>Avisar para descansar</summary>
+    </key>
+    <key name="intervalo" type="i">
+      <range min="5" max="240"/>
+      <default>50</default>
+      <summary>Minutos de uso seguido antes de avisar</summary>
+    </key>
+    <key name="descanso" type="i">
+      <range min="1" max="60"/>
+      <default>5</default>
+      <summary>Minutos sin usar la computadora que cuentan como descanso</summary>
+    </key>
+  </schema>
+</schemalist>
